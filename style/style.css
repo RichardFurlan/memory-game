@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Dela Gothic One', cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  background-color: #c7cdd3;
+  background-image: url(https://wallpaperaccess.com/full/849790.gif);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card {
+  width: 6.5rem;
+  height: 6.5rem;
+  position: relative;
+
+  transform-style: preserve-3d;
+  transition: transform 0.7s;
+}
+
+.card_front,
+.card_back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 0.8rem;
+  box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.52);
+  backface-visibility: hidden;
+}
+
+.flip {
+  transform: rotateY(180deg);
+}
+
+.card_front {
+  transform: rotateY(180deg);
+  background-color: #101c2c;
+}
+
+@keyframes increaseCard {
+  0% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.card_back:hover {
+  animation-name: increaseCard;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.card_back {
+  color: #101c2c;
+  background-color: #05c3ff;
+  font-size: 30px;
+  /* display:none; */
+}
+
+#gameOver {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.92);
+  color: white;
+  font-size: 48px;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  top: 0;
+}
+
+.endTimer,
+.endMoves {
+  font-size: 25px;
+  color: white;
+  margin-top: 30px;
+}
+
+.endTimer {
+  font-size: 30px;
+}
+
+#restart {
+  padding: 22px;
+  font-size: 20px;
+  background-color: darkcyan;
+  border: none;
+  border-radius: 10px;
+  margin-top: 25px;
+}
+
+#gameBoard {
+  max-width: 700px;
+  display: grid;
+  grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 23px;
+
+  margin-bottom: 25px;
+}
+
+.score {
+  width: 29rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.timer:hover,
+.moveCounter:hover {
+  background-color: black;
+  color: white;
+
+  text-shadow: 0.5px 0.5px 20px;
+  box-shadow: -2px 2px 1px black;
+}
+
+.timer,
+.moveCounter {
+  display: flex;
+  justify-content: space-between;
+  min-width: 9rem;
+  background-color: white;
+  font-size: 20px;
+  border: 2px solid #05c3ff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  color: black;
+  text-shadow: 0.5px 0.5px 20px;
+  box-shadow: -2px 2px 1px;
+}
+
+@media (min-width: 750px) {
+  .score {
+    width: 34.375rem;
+  }
+
+  .card {
+    width: 9.375rem;
+    height: 9.375rem;
+  }
+}
